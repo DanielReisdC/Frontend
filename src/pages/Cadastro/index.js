@@ -215,7 +215,7 @@ const App = () => {
           </Main>
           <Anside>
             <ContainerLogo>
-              <Link onClick={() => navigate("/landingpage")}>
+              <Link onClick={() => navigate("/")}>
                 <ImageLogo src={logo} alt={"Logo-LifeTidy"} />
               </Link>
             </ContainerLogo>

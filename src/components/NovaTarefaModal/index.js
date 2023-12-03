@@ -154,7 +154,7 @@ const NovaTarefaModal = ({ isOpen, closeModal }) => {
             </ContainerInicioConclusaoHorario>
           </ContainerConclusao>
           <ContainerDescricaoTarefa>
-            <H4InfomacoesInputs>TAREFA</H4InfomacoesInputs>
+            <H4InfomacoesInputs>NOME</H4InfomacoesInputs>
             <TextArea
               type="text"
               id="tarefa"

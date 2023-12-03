@@ -38,8 +38,10 @@ const Tarefa = () => {
     return data;
   };
 
-  const [showModal, setShowModal] = useState(false);
+  
   const [tarefaSelecionada, setTarefaSelecionada] = useState(null);
+
+  const [showModal, setShowModal] = useState(false);
 
   const openModal = (idTarefa) => {
     setTarefaSelecionada(idTarefa);
@@ -114,7 +116,7 @@ const Tarefa = () => {
     setShowEditModal(false);
   };
 
-  // Função para filtrar as tarefas com base no termo de pesquisa
+  // Função para filtrar as tarefas
 
   const filteredTasks = tarefas.filter((tarefa) => {
     return (
@@ -122,7 +124,7 @@ const Tarefa = () => {
       tarefa.descricao.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
-  // Filtragem adicional na variável tasksToShowOrdenadas usando o termo de pesquisa
+  
   const tasksToShowFiltered = tasksToShowOrdenadas.filter((tarefa) => {
     return (
       tarefa.nome_tarefa.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -136,7 +138,7 @@ const Tarefa = () => {
       </TarefasConcluidas>
       <ContainerPaiLembretes>
         {searchTerm !== ""
-          ? // Se houver um termo de pesquisa, exibir as tarefas filtradas pela pesquisa
+          ?
             filteredTasks.map((tarefa) => (
               <ContainerLembretes key={tarefa.id_tarefa}>
                 <InformacoesLembretes>
@@ -197,7 +199,7 @@ const Tarefa = () => {
                 </EditarExcluir>
               </ContainerLembretes>
             ))
-          : // Se não houver termo de pesquisa, exibir as tarefas ordenadas e filtradas por outras opções
+          :
             tasksToShowFiltered.map((tarefa) => (
               <ContainerLembretes key={tarefa.id_tarefa}>
                 <InformacoesLembretes>

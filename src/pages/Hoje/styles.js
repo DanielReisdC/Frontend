@@ -83,6 +83,7 @@ export const ContainerTarefa = styled.div`
   max-height: 534px;
   overflow-y: scroll;
   min-width: 300px;
+  max-width: 400px;
 `;
 export const PPrioridadeRegular = styled.div`
   height: 44px;

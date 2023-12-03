@@ -21,10 +21,10 @@ import {
 
 const Semana = () => {
   const navigate = useNavigate();
-  const { token, setUserName, logout } = useAuth(); // Obtendo o token do contexto de autenticação
+  const { token, setUserName, logout } = useAuth(); 
 
   
-  const [isModalBootstrapOpen, setIsModalBootstrapOpen] = useState(false); // Estado para a nova modal Bootstrap
+  const [isModalBootstrapOpen, setIsModalBootstrapOpen] = useState(false);
   const { sideBarIsActive } = useAuth();
 
   const openModalBootstrap = () => {
@@ -39,8 +39,8 @@ const Semana = () => {
   useEffect(() => {
     const localToken = localStorage.getItem("token");
     if (!token && !localToken) {
-      // logout()
-      //navigate('/login');
+      logout()
+      navigate('/login');
     } else {
       const authToken = token || localToken;
       axios
@@ -52,13 +52,13 @@ const Semana = () => {
         .then((response) => {
           const userName = response.data.usuarioNome;
           setUserName(userName);
-          localStorage.setItem("userName", userName); // Armazenar o nome do usuário no localStorage
+          localStorage.setItem("userName", userName);
         })
         .catch((error) => {
           if (error.response && error.response.status === 401) {
-            // Se receber um status 401 (Não Autorizado), o token pode ser inválido ou expirado
-            logout(); // Limpar os dados de autenticação
-            navigate("/login"); // Redirecionar para a página de login
+            
+            logout(); 
+            navigate("/login"); 
           } else {
             console.error("Erro ao buscar o nome do usuário:", error);
           }
