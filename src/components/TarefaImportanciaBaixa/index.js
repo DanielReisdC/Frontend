@@ -1,4 +1,3 @@
-// TarefaImportanciaBaixa.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../../contexts/AuthContext";
@@ -23,16 +22,16 @@ import {
   ContainerCheckbox,
   PPrioridade,
   Container,
-} from "./styles"; // Importe os estilos necessários
+} from "./styles";
 import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 const TarefaImportanciaBaixa = () => {
-  const [tarefasImportanciaBaixa, setTarefasImportanciaBaixa] = useState([]); // Renomeie a variável 'tarefas' para 'tarefasImportanciaBaixa'
+  const [tarefasImportanciaBaixa, setTarefasImportanciaBaixa] = useState([]);
   const { token } = useAuth();
   const fetchTarefasImportanciaBaixa = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/tarefas/buscarBaixas",
+        "https://lifetidy.onrender.com/tarefas/buscarBaixas",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -71,7 +70,7 @@ const TarefaImportanciaBaixa = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete("http://localhost:4000/tarefas/apagar", {
+      await axios.delete("https://lifetidy.onrender.com/tarefas/apagar", {
         data: { id },
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -84,7 +83,7 @@ const TarefaImportanciaBaixa = () => {
   const handleStatusChange = async (id, status) => {
     try {
       await axios.put(
-        "http://localhost:4000/tarefas/atualizarStatus",
+        "https://lifetidy.onrender.com/tarefas/atualizarStatus",
         {
           id_tarefa: id,
           status: status ? "concluida" : "",
@@ -102,7 +101,7 @@ const TarefaImportanciaBaixa = () => {
 
   const hoje = new Date();
   const dia = String(hoje.getDate()).padStart(2, "0");
-  const mes = String(hoje.getMonth() + 1).padStart(2, "0"); //January is 0!
+  const mes = String(hoje.getMonth() + 1).padStart(2, "0");
   const ano = hoje.getFullYear();
 
   const dataHoje = dia + "/" + mes + "/" + ano;
@@ -110,7 +109,6 @@ const TarefaImportanciaBaixa = () => {
   const tarefasBaixasHoje = tarefasImportanciaBaixa.filter((tarefa) => {
     return tarefa.importancia === "BAIXA" && tarefa.data_fim === dataHoje;
   });
-
   return (
     <>
       <ContainerPaiLembretes>
@@ -161,7 +159,6 @@ const TarefaImportanciaBaixa = () => {
                 </P>
               </DescricaoDetalhada>
             </DescricaoLembretes>
-
             <EditarExcluir>
               <StyledIcon
                 icon={faTrash}

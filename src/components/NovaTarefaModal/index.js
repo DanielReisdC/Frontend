@@ -56,7 +56,7 @@ const NovaTarefaModal = ({ isOpen, closeModal }) => {
     setIsLoading(true);
     try {
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:4000/tarefas/adicionar", formState, {
+      await axios.post("https://lifetidy.onrender.com/tarefas/adicionar", formState, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

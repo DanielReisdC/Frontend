@@ -80,7 +80,6 @@ const App = () => {
               SOBRE NÓS
             </LinkLandingPage>
           </ContainerNav>
-
           <ContainerNav>
             <LinkLandingPage onClick={() => navigate("/cadastro")}>
               CADASTRO
@@ -241,7 +240,6 @@ const App = () => {
               </DivTodasInformacoesTarefasRight>
             </DivTodasInformacoes>
           </ContainerInformativoRendimento>
-
           <ContainerMarcadores>
             <H2Marcadores $marcadortitulo>
               ADICIONE MARCADORES E GERÊNCIE SUAS TAREFAS!

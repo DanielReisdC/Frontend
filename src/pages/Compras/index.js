@@ -6,45 +6,43 @@ import Modal from "../../components/ModalTarefa";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
-import{
-AppBody,
-Main,
-ContainerMainPrincial,
-ContainerButtonsAdicao,
-LinkButtonAdicao,
-StyledIcon,
-ContainerComprasPrincial,
-ContainerSubCompras,
-ContainerCompras,
-ContainerNomeLista,
-StyledIconClipboard,
-H3,
-StyledIconExcluir,
-StyledIconEditar,
-ContainerBorda,
-ContainerComprasTarefas,
-ContainerWhite,
-ButtonNew,
-ContainerListasCompras,
-ContainerListas,
-InputCheckBox,
-}from "./styles";
 import {
-    faPlus,
-    faClipboardList,
-    faTrash,
-    faPencilAlt,
+  AppBody,
+  Main,
+  ContainerMainPrincial,
+  ContainerButtonsAdicao,
+  LinkButtonAdicao,
+  StyledIcon,
+  ContainerComprasPrincial,
+  ContainerSubCompras,
+  ContainerCompras,
+  ContainerNomeLista,
+  StyledIconClipboard,
+  H3,
+  StyledIconExcluir,
+  StyledIconEditar,
+  ContainerBorda,
+  ContainerComprasTarefas,
+  ContainerWhite,
+  ButtonNew,
+  ContainerListasCompras,
+  ContainerListas,
+  InputCheckBox,
+} from "./styles";
+import {
+  faPlus,
+  faClipboardList,
+  faTrash,
+  faPencilAlt,
+} from "@fortawesome/free-solid-svg-icons";
 
-  } from "@fortawesome/free-solid-svg-icons";
-  
-
-const Compras = ()=>{
-    const navigate = useNavigate();
+const Compras = () => {
+  const navigate = useNavigate();
   const { token, setUserName, logout } = useAuth(); // Obtendo o token do contexto de autenticação
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { sideBarIsActive } = useAuth();
+  
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -56,12 +54,12 @@ const Compras = ()=>{
   useEffect(() => {
     const localToken = localStorage.getItem("token");
     if (!token && !localToken) {
-      // logout()
-      //navigate('/login');
+      logout();
+      navigate("/login");
     } else {
       const authToken = token || localToken;
       axios
-        .get("http://localhost:4000/usuarios/buscarNome", {
+        .get("https://lifetidy.onrender.com/usuarios/buscarNome", {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
@@ -69,70 +67,60 @@ const Compras = ()=>{
         .then((response) => {
           const userName = response.data.usuarioNome;
           setUserName(userName);
-          localStorage.setItem("userName", userName); // Armazenar o nome do usuário no localStorage
+          localStorage.setItem("userName", userName);
         })
         .catch((error) => {
           if (error.response && error.response.status === 401) {
-            // Se receber um status 401 (Não Autorizado), o token pode ser inválido ou expirado
-            logout(); // Limpar os dados de autenticação
-            navigate("/login"); // Redirecionar para a página de login
+            logout();
+            navigate("/login");
           } else {
             console.error("Erro ao buscar o nome do usuário:", error);
           }
         });
     }
   }, [navigate, setUserName, token, logout]);
-    return(
-        <AppBody>
-            <Header openModal={openModal}  />
-            <ContainerMainPrincial>
-            <SideBar />
-            <Main $isActive={sideBarIsActive}>
-                <ContainerButtonsAdicao>
-                    <LinkButtonAdicao>
-                    <StyledIcon icon={faPlus}></StyledIcon>
-                        ADICIONAR LISTA
-                    </LinkButtonAdicao>
-                </ContainerButtonsAdicao>
-
-                <ContainerComprasPrincial>
-                    <ContainerSubCompras>
-                        <ContainerCompras>
-                            <ContainerNomeLista>
-                                <StyledIconClipboard icon={faClipboardList}>
-                                    
-                                </StyledIconClipboard>
-                                <H3>Feira da Semana</H3>
-                                <StyledIconExcluir icon={faTrash}></StyledIconExcluir>
-                                <StyledIconEditar icon={faPencilAlt}></StyledIconEditar>
-                            </ContainerNomeLista>
-                            <ContainerBorda></ContainerBorda>
-                            <ContainerComprasTarefas>
-                                <ContainerWhite>
-                                <ButtonNew></ButtonNew>
-                                <ContainerListasCompras>
-                                    <ContainerListas>
-                                        <InputCheckBox type="checkbox"/>
-                                    </ContainerListas>
-                                </ContainerListasCompras>
-
-                                </ContainerWhite>
-                                
-                            </ContainerComprasTarefas>
-
-                        </ContainerCompras>
-
-                    </ContainerSubCompras>
-
-                </ContainerComprasPrincial>
-
-            </Main>
-            </ContainerMainPrincial>
-            {isModalOpen && <Modal isOpen={isModalOpen} closeModal={closeModal} />}
-        </AppBody>
-
-
-    );
-
+  return (
+    <AppBody>
+      <Header openModal={openModal} />
+      <ContainerMainPrincial>
+        <SideBar />
+        <Main $isActive={sideBarIsActive}>
+          <ContainerButtonsAdicao>
+            <LinkButtonAdicao>
+              <StyledIcon icon={faPlus}></StyledIcon>
+              ADICIONAR LISTA
+            </LinkButtonAdicao>
+          </ContainerButtonsAdicao>
+          <ContainerComprasPrincial>
+            <ContainerSubCompras>
+              <ContainerCompras>
+                <ContainerNomeLista>
+                  <StyledIconClipboard
+                    icon={faClipboardList}
+                  ></StyledIconClipboard>
+                  <H3>Feira da Semana</H3>
+                  <StyledIconExcluir icon={faTrash}></StyledIconExcluir>
+                  <StyledIconEditar icon={faPencilAlt}></StyledIconEditar>
+                </ContainerNomeLista>
+                <ContainerBorda></ContainerBorda>
+                <ContainerComprasTarefas>
+                  <ContainerWhite>
+                    <ButtonNew></ButtonNew>
+                    <ContainerListasCompras>
+                      <ContainerListas>
+                        <InputCheckBox type="checkbox" />
+                      </ContainerListas>
+                    </ContainerListasCompras>
+                  </ContainerWhite>
+                </ContainerComprasTarefas>
+              </ContainerCompras>
+            </ContainerSubCompras>
+          </ContainerComprasPrincial>
+        </Main>
+      </ContainerMainPrincial>
+      {isModalOpen && <Modal isOpen={isModalOpen} closeModal={closeModal} />}
+    </AppBody>
+  );
 };
+
 export default Compras;

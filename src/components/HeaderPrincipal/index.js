@@ -50,7 +50,7 @@ const handleSearch = (e) => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:4000/usuarios/logout");
+      await axios.post("https://lifetidy.onrender.com/usuarios/logout");
       logout();
       navigate("/");
     } catch (error) {

@@ -38,7 +38,6 @@ const Tarefa = () => {
     return data;
   };
 
-  
   const [tarefaSelecionada, setTarefaSelecionada] = useState(null);
 
   const [showModal, setShowModal] = useState(false);
@@ -54,7 +53,7 @@ const Tarefa = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete("http://localhost:4000/tarefas/apagar", {
+      await axios.delete("https://lifetidy.onrender.com/tarefas/apagar", {
         data: { id },
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -66,7 +65,7 @@ const Tarefa = () => {
   const handleStatusChange = async (id, status) => {
     try {
       await axios.put(
-        "http://localhost:4000/tarefas/atualizarStatus",
+        "https://lifetidy.onrender.com/tarefas/atualizarStatus",
         {
           id_tarefa: id,
           status: status ? "concluida" : "",
@@ -117,20 +116,20 @@ const Tarefa = () => {
   };
 
   // Função para filtrar as tarefas
-
   const filteredTasks = tarefas.filter((tarefa) => {
     return (
       tarefa.nome_tarefa.toLowerCase().includes(searchTerm.toLowerCase()) ||
       tarefa.descricao.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
-  
+
   const tasksToShowFiltered = tasksToShowOrdenadas.filter((tarefa) => {
     return (
       tarefa.nome_tarefa.toLowerCase().includes(searchTerm.toLowerCase()) ||
       tarefa.descricao.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
+
   return (
     <>
       <TarefasConcluidas onClick={toggleShowCompletedTasks}>
@@ -138,8 +137,7 @@ const Tarefa = () => {
       </TarefasConcluidas>
       <ContainerPaiLembretes>
         {searchTerm !== ""
-          ?
-            filteredTasks.map((tarefa) => (
+          ? filteredTasks.map((tarefa) => (
               <ContainerLembretes key={tarefa.id_tarefa}>
                 <InformacoesLembretes>
                   <Container>
@@ -199,8 +197,7 @@ const Tarefa = () => {
                 </EditarExcluir>
               </ContainerLembretes>
             ))
-          :
-            tasksToShowFiltered.map((tarefa) => (
+          : tasksToShowFiltered.map((tarefa) => (
               <ContainerLembretes key={tarefa.id_tarefa}>
                 <InformacoesLembretes>
                   <Container>

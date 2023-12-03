@@ -61,7 +61,7 @@ const EditarTarefaModal = ({ isOpen, closeModal, tarefa }) => {
     setIsLoading(true);
     try {
       const token = localStorage.getItem("token");
-      await axios.put("http://localhost:4000/tarefas/atualizar", {
+      await axios.put("https://lifetidy.onrender.com/tarefas/atualizar", {
         id_tarefa: tarefa.id_tarefa,
         dadosAtualizados: formState
       }, {

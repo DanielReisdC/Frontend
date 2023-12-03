@@ -18,7 +18,7 @@ import {
 
 const Home = () => {
   const navigate = useNavigate();
-  const { token, setUserName, logout, fetchTarefas } = useAuth(); 
+  const { token, setUserName, logout, fetchTarefas } = useAuth();
 
   const [isModalBootstrapOpen, setIsModalBootstrapOpen] = useState(false);
   const { sideBarIsActive } = useAuth();
@@ -39,7 +39,7 @@ const Home = () => {
     } else {
       const authToken = token || localToken;
       axios
-        .get("http://localhost:4000/usuarios/buscarNome", {
+        .get("https://lifetidy.onrender.com/usuarios/buscarNome", {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
@@ -55,7 +55,7 @@ const Home = () => {
         })
         .catch((error) => {
           if (error.response && error.response.status === 401) {
-            logout(); 
+            logout();
             navigate("/");
           } else {
             console.error("Erro ao buscar o nome do usuário:", error);
@@ -69,12 +69,12 @@ const Home = () => {
 
   useEffect(() => {
     fetchTarefas();
-   // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [token]);
 
   return (
     <AppBody>
-      <Header openModal={openModalBootstrap}  />
+      <Header openModal={openModalBootstrap} />
       <ContainerMainPrincial>
         <SideBar />
         <Main $isActive={sideBarIsActive}>

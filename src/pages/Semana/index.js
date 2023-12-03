@@ -23,7 +23,6 @@ const Semana = () => {
   const navigate = useNavigate();
   const { token, setUserName, logout } = useAuth(); 
 
-  
   const [isModalBootstrapOpen, setIsModalBootstrapOpen] = useState(false);
   const { sideBarIsActive } = useAuth();
 
@@ -44,7 +43,7 @@ const Semana = () => {
     } else {
       const authToken = token || localToken;
       axios
-        .get("http://localhost:4000/usuarios/buscarNome", {
+        .get("https://lifetidy.onrender.com/usuarios/buscarNome", {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
@@ -104,4 +103,5 @@ const Semana = () => {
     </AppBody>
   );
 };
+
 export default Semana;

@@ -26,14 +26,12 @@ import {
 import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 const TarefaImportanciaRegular = () => {
-  const [tarefasImportanciaRegular, setTarefasImportanciaRegular] = useState(
-    []
-  ); 
+  const [tarefasImportanciaRegular, setTarefasImportanciaRegular] = useState([]);
   const { token } = useAuth();
   const fetchTarefasImportanciaRegular = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/tarefas/buscarRegulares",
+        "https://lifetidy.onrender.com/tarefas/buscarRegulares",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -72,7 +70,7 @@ const TarefaImportanciaRegular = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete("http://localhost:4000/tarefas/apagar", {
+      await axios.delete("https://lifetidy.onrender.com/tarefas/apagar", {
         data: { id },
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -85,7 +83,7 @@ const TarefaImportanciaRegular = () => {
   const handleStatusChange = async (id, status) => {
     try {
       await axios.put(
-        "http://localhost:4000/tarefas/atualizarStatus",
+        "https://lifetidy.onrender.com/tarefas/atualizarStatus",
         {
           id_tarefa: id,
           status: status ? "concluida" : "",
@@ -161,7 +159,6 @@ const TarefaImportanciaRegular = () => {
                 </P>
               </DescricaoDetalhada>
             </DescricaoLembretes>
-
             <EditarExcluir>
               <StyledIcon
                 icon={faTrash}

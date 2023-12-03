@@ -31,7 +31,7 @@ const TarefaImportanciaAlta = () => {
   const fetchTarefasImportanciaAlta = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/tarefas/buscarUrgentes",
+        "https://lifetidy.onrender.com/tarefas/buscarUrgentes",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -70,7 +70,7 @@ const TarefaImportanciaAlta = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete("http://localhost:4000/tarefas/apagar", {
+      await axios.delete("https://lifetidy.onrender.com/tarefas/apagar", {
         data: { id },
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -83,7 +83,7 @@ const TarefaImportanciaAlta = () => {
   const handleStatusChange = async (id, status) => {
     try {
       await axios.put(
-        "http://localhost:4000/tarefas/atualizarStatus",
+        "https://lifetidy.onrender.com/tarefas/atualizarStatus",
         {
           id_tarefa: id,
           status: status ? "concluida" : "",
@@ -159,7 +159,6 @@ const TarefaImportanciaAlta = () => {
                 </P>
               </DescricaoDetalhada>
             </DescricaoLembretes>
-
             <EditarExcluir>
               <StyledIcon
                 icon={faTrash}

@@ -91,7 +91,7 @@ const App = () => {
     try {
       // Chamada para o backend para cadastrar usuário
       const response = await axios.post(
-        "http://localhost:4000/usuarios/cadastrar",
+        "https://lifetidy.onrender.com/usuarios/cadastrar",
         {
           nome_usuario,
           email,
