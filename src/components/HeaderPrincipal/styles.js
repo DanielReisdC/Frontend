@@ -122,6 +122,7 @@ export const ButtonAviso = styled.button`
     height: 30px;
     width: 30px;
   }
+  
 `;
 export const ButtonDesempenho = styled.button`
   width: 40px;
@@ -205,6 +206,7 @@ export const LinkMenu = styled.div`
   &:hover {
     background-color: #bdbdbd;
   }
+  cursor: ${(props) => (props.$desenvolvimento ? "not-allowed" : "pointer")};
 
   border-bottom-left-radius: ${(props) => (props.$lastLinkPerfil ? "15px" : "")};
   border-bottom-right-radius: ${(props) => (props.$lastLinkPerfil ? "15px" : "")};

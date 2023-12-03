@@ -69,25 +69,26 @@ const Sidebar = () => {
                 </LinkSideBar>
               </MenuItem>
               <Border></Border>
-              <MenuItem $estudo>
+              <MenuItem $desenvolvimento>
               <LinkSideBar>
                   <StyledIcon icon={faBook} />
                   ESTUDO
                   </LinkSideBar>
                   <P>(Desenvolvimento)</P>
               </MenuItem>
-              <MenuItem $active={location.pathname === "/compras"}>
-              <LinkSideBar onClick={() => navigate("/compras")}>
+              <MenuItem $desenvolvimento>
+              <LinkSideBar>
                   <StyledIcon icon={faShoppingCart} />
                   COMPRAS
                   </LinkSideBar>
-                  
+                  <P>(Desenvolvimento)</P>
               </MenuItem>
-              <MenuItem $active={location.pathname === "/agenda"}>
-              <LinkSideBar onClick={() => navigate("/agenda")}>
+              <MenuItem $desenvolvimento>
+              <LinkSideBar>
                   <StyledIcon icon={faCalendarAlt} />
                   AGENDA
                   </LinkSideBar>
+                  <P>(Desenvolvimento)</P>
               </MenuItem>
             </Menu>
           </SideBar>

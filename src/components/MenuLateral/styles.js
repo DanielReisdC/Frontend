@@ -41,7 +41,7 @@ export const P = styled.p`
     color: #FFF;
     text-align: center;
     position: relative;
-    bottom: 14px;
+    bottom: 20px;
     right: 12px;
 `
 
@@ -70,7 +70,7 @@ export const MenuItem = styled.div`
   ${props => props.$active && css`
     background-color: #021016;
   `}
-  cursor: ${(props) => (props.$estudo ? "not-allowed" : "pointer")};
+  cursor: ${(props) => (props.$desenvolvimento ? "not-allowed" : "pointer")};
 `;
 
 export const Border = styled.div`
