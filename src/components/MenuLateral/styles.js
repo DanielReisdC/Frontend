@@ -27,6 +27,12 @@ export const SideBar = styled.div`
   @media (max-height: 800px) {
     height: 100%
   }
+
+  @media (max-width:555px){
+    position: absolute;
+    top: 64px;
+    z-index:1000;
+  }
   
   `;
 
@@ -95,6 +101,10 @@ export const MenuButton = styled.div`
   font-size: 20px;
   margin: 25px;
   cursor: pointer;
+  @media (max-width:555px){
+    margin: 5px;
+    z-index: 100;
+  }
 `;
 
 export const LinkSideBar = styled.a`

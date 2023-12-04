@@ -25,6 +25,11 @@ padding: 0 6px;
     background-color: #2f6f8e;
   }
 
+  @media (max-width: 555px) {
+    bottom: 1em;
+    left: 0.5em;
+  }
+
 `
 export const Container = styled.div``;
 export const ContainerLembretes = styled.div`
