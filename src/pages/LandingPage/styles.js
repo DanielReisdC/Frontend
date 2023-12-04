@@ -25,32 +25,30 @@ export const ContainerNav = styled.div`
   }
 `;
 export const ContainerLogo = styled.div`
-  max-width: 150px;
+  max-width: 20px;
   margin-left: 1em;
   min-width: 115px;
   margin-left: 0;
+  @media (max-width: 330px) {
+    min-width: 50px;
+    max-width: 60px;
+  }
 `;
 
 export const Link = styled.a`
-cursor: pointer;
+  cursor: pointer;
   display: inline-block;
-  margin-right: 20px;
   text-decoration: none;
   color: #242424;
   font-size: 15px;
   transition: color 0.3s ease;
   font-weight: bold;
 
+  margin-right: ${(props) => (props.$linkLogo ? "0" : "20px")};
+
   &:hover {
     color: #21325a;
   }
-
-`;
-export const ImageLogo = styled.img`
-  width: 100%;
-  display: flex;
-  cursor: pointer;
-
 `;
 
 export const LinkLandingPage = styled.a`
@@ -64,14 +62,18 @@ export const LinkLandingPage = styled.a`
   cursor: pointer;
   transition: color 0.3s ease-in-out;
 
+  @media (max-width: 450px) {
+    display: ${(props) => (props.$remove ? "none" : "display: inline-block")};
+  }
+
   &::after {
     content: "";
     position: absolute;
     bottom: -5px;
     left: 0;
     width: 0;
-    height: 2px; 
-    background: #000000; 
+    height: 2px;
+    background: #000000;
     transition: width 0.3s ease-in-out;
   }
 
@@ -82,7 +84,6 @@ export const LinkLandingPage = styled.a`
       width: 100%;
     }
   }
-  
 
   @media (max-width: 768px) {
     margin: 5px;
@@ -96,7 +97,7 @@ export const UniqueLink = styled(LinkLandingPage)`
   border-radius: 25px;
   left: 19px;
   &:hover::after {
-    width: 80%; 
+    width: 80%;
     left: 19px;
   }
 
@@ -300,24 +301,26 @@ export const FooterLifeTidy = styled.footer`
 export const ContainerFooter = styled.div`
   max-width: 1200px;
   margin: 0 auto;
+  
 `;
 
 export const FooterTop = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 export const FooterLogo = styled.div`
-  width: 12%;
+  width: min-content;
 `;
 
 export const ImageLogoFooter = styled.img`
- min-width: 100px;
-    width: 100%;
-    height: 100%;
-    margin: 11px 0 0 11px;
-    cursor: pointer;
+  min-width: 100px;
+  width: 100%;
+  height: 100%;
+  margin: 11px 0 0 11px;
+  cursor: pointer;
 `;
 
 export const FooterLinks = styled.div``;
@@ -337,6 +340,10 @@ export const StyledLi = styled.li`
   font-size: 15px;
   transition: color 0.3s ease;
   font-weight: bold;
+
+  @media (max-width: 471px) {
+    margin-left: 11px;
+  }
 
   &:hover {
     color: #21325a;

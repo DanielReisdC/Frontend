@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/logo.png";
 import imgLandingPage from "../../assets/img-landingPage.png";
 import iconAdicionar from "../../assets/adicionar.png";
 import iconExcluir from "../../assets/excluir.png";
@@ -11,6 +10,11 @@ import notificacoesWiki from "../../assets/notificacoesWiki.png";
 import imgNotificacao from "../../assets/notificacoesIndex.png";
 import imgInformativoRendimento from "../../assets/informativo-de-redimento.png";
 import adicionarMarcador from "../../assets/adicionar-Marcador.png";
+import logo from "../../assets/logo.png";
+import mobileLogo from '../../assets/icon-logo.png';
+import desktopLogo from '../../assets/logo.png';
+import ResponsiveImage from './responsiveLogo';
+
 
 import {
   AppBody,
@@ -19,7 +23,6 @@ import {
   ContainerNav,
   ContainerLogo,
   Link,
-  ImageLogo,
   LinkLandingPage,
   UniqueLink,
   Main,
@@ -72,11 +75,11 @@ const App = () => {
         <Nav>
           <ContainerNav>
             <ContainerLogo>
-              <Link onClick={() => navigate("/")}>
-                <ImageLogo src={logo} alt={"Logo-LifeTidy"} />
+              <Link $linkLogo onClick={() => navigate("/")}>
+              <ResponsiveImage mobileImage={mobileLogo} desktopImage={desktopLogo} alt="Logo" />
               </Link>
             </ContainerLogo>
-            <LinkLandingPage onClick={() => navigate("/sobreNos")}>
+            <LinkLandingPage $remove onClick={() => navigate("/sobreNos")}>
               SOBRE NÓS
             </LinkLandingPage>
           </ContainerNav>
