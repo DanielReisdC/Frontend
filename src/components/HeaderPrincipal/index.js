@@ -5,10 +5,12 @@ import Modal from "../ModalTarefa/index.js";
 import Desempenho from "../ModalDesempenho/index.js";
 import { useAuth } from "../../contexts/AuthContext";
 import axios from "axios";
+import mobileLogo from '../../assets/icon-logo.png';
+import desktopLogo from '../../assets/logo.png';
+import ResponsiveImage from '../LogoResponsiva/responsiveLogo.js';
 import {
   ContainerHeader,
   ContainerLogo,
-  ContainerImg,
   ContainerButtons,
   InputPesquisa,
   ContainerButtonsModal,
@@ -63,7 +65,7 @@ const handleSearch = (e) => {
     <ContainerHeader>
       <ContainerLogo>
         <Link onClick={() => navigate("/")}>
-          <ContainerImg></ContainerImg>
+        <ResponsiveImage mobileImage={mobileLogo} desktopImage={desktopLogo} alt="Logo" />
         </Link>
       </ContainerLogo>
       <ContainerButtons>
