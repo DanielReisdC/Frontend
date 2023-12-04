@@ -42,8 +42,8 @@ const Hoje = () => {
   useEffect(() => {
     const localToken = localStorage.getItem("token");
     if (!token && !localToken) {
-      logout();
-      navigate("/login");
+      //logout();
+      //navigate("/login");
     } else {
       const authToken = token || localToken;
       axios
@@ -53,14 +53,18 @@ const Hoje = () => {
           },
         })
         .then((response) => {
-          const userName = response.data.usuarioNome;
+          let userName = response.data.usuarioNome;
+          let userNameSplit = userName.split(" ");
+          if (userNameSplit.length > 2) {
+            userName = userNameSplit.slice(0, 2).join(" ");
+          }
           setUserName(userName);
-          localStorage.setItem("userName", userName); 
+          localStorage.setItem("userName", userName);
         })
         .catch((error) => {
           if (error.response && error.response.status === 401) {
             logout();
-            navigate("/login"); 
+            navigate("/login");
           } else {
             console.error("Erro ao buscar o nome do usuário:", error);
           }

@@ -26,7 +26,7 @@ export const ContainerLembrete = styled.div`
   background-color: #d9d9d9;
   padding: 10px;
   border-radius: 15px;
-  margin: 10px 5px;
+  margin: 35px 5px;
   min-width: 82%;
   max-width: 1150px;
   min-height: 100vh;

@@ -17,13 +17,16 @@ export const Main = styled.div`
   display: flex;
   justify-content: center;
   min-height: 100vh;
+  @media (max-width:555px){
+    left: 0;
+  }
 `;
 
 export const ContainerSubEsquerda = styled.div`
   background-color: #d9d9d9;
   padding: 10px;
   border-radius: 15px;
-  margin: 30px 5px;
+  margin: 35px 5px;
   height: 730px;
   min-width: 346px;
 `;

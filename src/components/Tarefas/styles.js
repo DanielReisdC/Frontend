@@ -39,6 +39,10 @@ export const ContainerLembretes = styled.div`
   display: flex;
   margin-bottom: 10px;
   margin: 1em 0 0.8em 1em;
+
+  @media (max-width:555px){
+    margin: 1em 0;
+  }
 `;
 
 export const InformacoesLembretes = styled.div`
