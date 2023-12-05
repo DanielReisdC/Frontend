@@ -158,3 +158,24 @@ margin-right: 6px;
 width: 20px;
 height: 17px;
 `;
+export const PListaQuantidade = styled.div`
+    font-size: 17px;
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+    margin: 8px 0;
+    &:first-of-type{
+      border-right: 2px solid #000;
+    padding-right: 8px;
+    }
+`;
+export const PListaNomeItem = styled.div`
+font-size: 17px;
+font-weight: bold;
+border-bottom: 1px solid #000;
+margin: 8px 0;
+&:last-of-type {
+  padding-left: 8px;
+  min-width: 62%;
+  max-width: 62%;
+}
+`;

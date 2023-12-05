@@ -29,6 +29,8 @@ ButtonNew,
 ContainerListasCompras,
 ContainerListas,
 InputCheckBox,
+PListaQuantidade,
+PListaNomeItem,
 }from "./styles";
 import {
     faPlus,
@@ -113,6 +115,13 @@ const Compras = ()=>{
                                 <ContainerListasCompras>
                                     <ContainerListas>
                                         <InputCheckBox type="checkbox"/>
+                                        <PListaQuantidade>
+                                          4
+                                        </PListaQuantidade>
+                                        <PListaNomeItem>
+                                          fdsfsdfsdf 
+                                        </PListaNomeItem>
+                                        <StyledIconExcluir icon={faTrash}></StyledIconExcluir>
                                     </ContainerListas>
                                 </ContainerListasCompras>
 
