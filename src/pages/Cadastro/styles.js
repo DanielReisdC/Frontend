@@ -126,10 +126,11 @@ export const Input = styled.input`
     }
   }
 
-  @media (max-width: 353px) {
+  @media (max-width: 493px) {
     max-width: 225px;
     height: 30px;
     min-width: 0;
+    font-size: 14px;
   }
 `;
 

@@ -21,11 +21,13 @@ export const ContainerLogo = styled.div`
   margin: 0 0.5em 0 1em;
   width: 20%;
   max-width: 12em;
-  @media (max-width: 568px) {
+  display: flex;
+  align-items: center;
+  @media (max-width: 555px) {
     min-width: 0;
     width: 3em;
     height: 75%;
-    margin: 0 0.7em;
+    margin: 0 0.4em;
   }
 `;
 export const Link = styled.a``;
@@ -66,8 +68,14 @@ export const InputPesquisa = styled.input`
     height: 2em;
   }
   @media (max-width: 568px) {
+    height: 28px;
+    font-size: 12px;
+    background-position: 2px;
+    background-size: 20px;
+  
+  padding-left: 25px;
     &::placeholder {
-      color: transparent;
+      font-size: 10px;
     }
   }
 `;
@@ -98,6 +106,10 @@ export const ButtonAdicionar = styled.button`
     height: 30px;
     width: 30px;
   }
+  @media (max-width: 568px) {
+    height: 25px;
+    width: 25px;
+  }
 `;
 export const ButtonAviso = styled.button`
   width: 40px;
@@ -122,6 +134,10 @@ export const ButtonAviso = styled.button`
     height: 30px;
     width: 30px;
   }
+  @media (max-width: 568px) {
+    height: 25px;
+    width: 25px;
+  }
 `;
 export const ButtonDesempenho = styled.button`
   width: 40px;
@@ -145,6 +161,10 @@ export const ButtonDesempenho = styled.button`
     margin-right: 4px;
     height: 30px;
     width: 30px;
+  }
+  @media (max-width: 568px) {
+    height: 25px;
+    width: 25px;
   }
 `;
 export const ContainerPerfil = styled.div`
@@ -205,9 +225,12 @@ export const LinkMenu = styled.div`
   &:hover {
     background-color: #bdbdbd;
   }
+  cursor: ${(props) => (props.$desenvolvimento ? "not-allowed" : "pointer")};
 
-  border-bottom-left-radius: ${(props) => (props.$lastLinkPerfil ? "15px" : "")};
-  border-bottom-right-radius: ${(props) => (props.$lastLinkPerfil ? "15px" : "")};
+  border-bottom-left-radius: ${(props) =>
+    props.$lastLinkPerfil ? "15px" : ""};
+  border-bottom-right-radius: ${(props) =>
+    props.$lastLinkPerfil ? "15px" : ""};
 `;
 export const ContainerSubMenu = styled.div`
   display: none;

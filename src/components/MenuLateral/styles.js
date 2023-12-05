@@ -27,6 +27,12 @@ export const SideBar = styled.div`
   @media (max-height: 800px) {
     height: 100%
   }
+
+  @media (max-width:555px){
+    position: absolute;
+    top: 64px;
+    z-index:1000;
+  }
   
   `;
 
@@ -41,7 +47,7 @@ export const P = styled.p`
     color: #FFF;
     text-align: center;
     position: relative;
-    bottom: 14px;
+    bottom: 20px;
     right: 12px;
 `
 
@@ -70,7 +76,7 @@ export const MenuItem = styled.div`
   ${props => props.$active && css`
     background-color: #021016;
   `}
-  cursor: ${(props) => (props.$estudo ? "not-allowed" : "pointer")};
+  cursor: ${(props) => (props.$desenvolvimento ? "not-allowed" : "pointer")};
 `;
 
 export const Border = styled.div`
@@ -95,6 +101,10 @@ export const MenuButton = styled.div`
   font-size: 20px;
   margin: 25px;
   cursor: pointer;
+  @media (max-width:555px){
+    margin: 5px;
+    z-index: 100;
+  }
 `;
 
 export const LinkSideBar = styled.a`

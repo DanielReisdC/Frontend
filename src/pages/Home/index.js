@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import Header from "../../components/HeaderPrincipal/index.js";
 import SideBar from "../../components/MenuLateral/index.js";
-//import Modal from "../../components/ModalTarefa";
 //import Desempenho from "../../components/ModalDesempenho";
 import NovaTarefaModal from "../../components/NovaTarefaModal";
 import Tarefa from "../../components/Tarefas/index.js";
@@ -19,9 +18,9 @@ import {
 
 const Home = () => {
   const navigate = useNavigate();
-  const { token, setUserName, logout, fetchTarefas } = useAuth(); // Obtendo o token do contexto de autenticação
+  const { token, setUserName, logout, fetchTarefas } = useAuth();
 
-  const [isModalBootstrapOpen, setIsModalBootstrapOpen] = useState(false); // Estado para a nova modal Bootstrap
+  const [isModalBootstrapOpen, setIsModalBootstrapOpen] = useState(false);
   const { sideBarIsActive } = useAuth();
 
   const openModalBootstrap = () => {
@@ -35,12 +34,12 @@ const Home = () => {
   useEffect(() => {
     const localToken = localStorage.getItem("token");
     if (!token && !localToken) {
-      //logout();
-      //navigate("/login");
+      logout();
+      navigate("/login");
     } else {
       const authToken = token || localToken;
       axios
-        .get("http://localhost:4000/usuarios/buscarNome", {
+        .get("https://lifetidy.onrender.com/usuarios/buscarNome", {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
@@ -56,9 +55,8 @@ const Home = () => {
         })
         .catch((error) => {
           if (error.response && error.response.status === 401) {
-            // Se receber um status 401 (Não Autorizado), o token pode ser inválido ou expirado
-            logout(); // Limpar os dados de autenticação
-            navigate("/"); // Redirecionar para a página de login
+            logout();
+            navigate("/");
           } else {
             console.error("Erro ao buscar o nome do usuário:", error);
             console.log(error);
@@ -71,12 +69,12 @@ const Home = () => {
 
   useEffect(() => {
     fetchTarefas();
-   // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [token]);
 
   return (
     <AppBody>
-      <Header openModal={openModalBootstrap}  />
+      <Header openModal={openModalBootstrap} />
       <ContainerMainPrincial>
         <SideBar />
         <Main $isActive={sideBarIsActive}>

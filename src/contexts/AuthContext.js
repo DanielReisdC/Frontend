@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
       const token = localStorage.getItem("token"); // Recupera o token do localStorage
 
       const response = await axios.get(
-        "http://localhost:4000/tarefas/buscarTarefas",
+        "https://lifetidy.onrender.com/tarefas/buscarTarefas",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -61,6 +61,8 @@ export const AuthProvider = ({ children }) => {
     setToken("");
   };
 
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <AuthContext.Provider
       value={{
@@ -75,7 +77,9 @@ export const AuthProvider = ({ children }) => {
         setTarefas,
         fetchTarefas,
         isActive,
-      setIsActive,
+        setIsActive,
+        searchTerm,
+        setSearchTerm,
       }}
     >
       {children}

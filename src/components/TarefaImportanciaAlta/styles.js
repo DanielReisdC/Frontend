@@ -25,11 +25,6 @@ padding: 0 6px;
     background-color: #2f6f8e;
   }
 
-  @media (max-width: 555px) {
-    bottom: 1em;
-    left: 0.5em;
-  }
-
 `
 export const Container = styled.div``;
 export const ContainerLembretes = styled.div`
@@ -38,11 +33,7 @@ export const ContainerLembretes = styled.div`
   padding: 8px 6px;
   display: flex;
   margin-bottom: 10px;
-  margin: 1em 0 0.8em 1em;
-
-  @media (max-width:555px){
-    margin: 1em 0;
-  }
+  margin: 0.3em 0 0.3em 0.3em;
 `;
 
 export const InformacoesLembretes = styled.div`

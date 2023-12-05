@@ -28,7 +28,7 @@ import {
   UniqueLink,
   ImageLogoH,
   ContainerLogoH,
-} from "./styles"; // Importando os componentes do arquivo de estilos
+} from "./styles";
 
 const App = () => {
   const navigate = useNavigate();
@@ -44,10 +44,9 @@ const App = () => {
               </Link>
             </ContainerLogoH>
             <LinkLandingPage onClick={() => navigate("/")}>
-            Página Inicial
+              Página Inicial
             </LinkLandingPage>
           </ContainerNav>
-
           <ContainerNav>
             <LinkLandingPage onClick={() => navigate("/cadastro")}>
               CADASTRO
@@ -56,7 +55,6 @@ const App = () => {
           </ContainerNav>
         </Nav>
       </Header>
-
       <Main>
         <ContainerLogo id="topo">
           <Link onClick={() => navigate("/")}>
@@ -66,7 +64,6 @@ const App = () => {
         <MainTitle>
           Sua solução completa para organização pessoal e produtividade.
         </MainTitle>
-
         <MainText>
           LifeTidy é uma plataforma inovadora de organização pessoal projetada
           para simplificar sua vida e maximizar sua produtividade. Com uma
@@ -82,7 +79,6 @@ const App = () => {
           diferentes modos de exibição e receba lembretes inteligentes para
           manter-se no caminho certo.
         </MainText>
-
         <MainText>
           Desfrute de uma vida mais organizada, produtiva e equilibrada com
           LifeTidy. Simplifique suas tarefas, conquiste seus objetivos e
@@ -103,9 +99,7 @@ const App = () => {
                 <StyledLi onClick={() => navigate("/")}>
                   Página Inicial
                 </StyledLi>
-                <StyledLi onClick={() => navigate("/")}>
-                  Recursos
-                </StyledLi>
+                <StyledLi onClick={() => navigate("/")}>Recursos</StyledLi>
                 <StyledLi>
                   <Link href="#topo">Sobre Nós</Link>
                 </StyledLi>

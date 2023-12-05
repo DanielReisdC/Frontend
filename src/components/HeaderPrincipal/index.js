@@ -5,10 +5,12 @@ import Modal from "../ModalTarefa/index.js";
 import Desempenho from "../ModalDesempenho/index.js";
 import { useAuth } from "../../contexts/AuthContext";
 import axios from "axios";
+import mobileLogo from '../../assets/icon-logo.png';
+import desktopLogo from '../../assets/logo.png';
+import ResponsiveImage from '../LogoResponsiva/responsiveLogo.js';
 import {
   ContainerHeader,
   ContainerLogo,
-  ContainerImg,
   ContainerButtons,
   InputPesquisa,
   ContainerButtonsModal,
@@ -24,8 +26,13 @@ import {
   ContainerSubMenu,
 } from "./styles";
 
-const Header = ({ openModal,openModalDesempenho }) => {
-    
+const Header = ({ openModal, openModalDesempenho }) => {
+  const { setSearchTerm } = useAuth();
+
+const handleSearch = (e) => {
+  setSearchTerm(e.target.value);
+};
+
   const navigate = useNavigate();
   const { userName, logout } = useAuth();
   const [showModal, setShowModal] = useState(false);
@@ -45,26 +52,29 @@ const Header = ({ openModal,openModalDesempenho }) => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:4000/usuarios/logout');
+      await axios.post("https://lifetidy.onrender.com/usuarios/logout");
       logout();
-      navigate('/');
+      navigate("/");
     } catch (error) {
-      console.error('Erro ao realizar logout:', error);
+      console.error("Erro ao realizar logout:", error);
       // Trate o erro conforme necessário
     }
   };
 
-  
-  
   return (
     <ContainerHeader>
       <ContainerLogo>
         <Link onClick={() => navigate("/")}>
-          <ContainerImg></ContainerImg>
+        <ResponsiveImage mobileImage={mobileLogo} desktopImage={desktopLogo} alt="Logo" />
         </Link>
       </ContainerLogo>
       <ContainerButtons>
-        <InputPesquisa type="text" placeholder="PESQUISAR" />
+        <InputPesquisa
+          maxLength={40}
+          type="text"
+          placeholder="PESQUISAR TAREFAS"
+          onChange={handleSearch}
+        />
         <ContainerButtonsModal>
           <ButtonAdicionar onClick={openModal}></ButtonAdicionar>
           <ButtonAviso></ButtonAviso>
@@ -78,8 +88,8 @@ const Header = ({ openModal,openModalDesempenho }) => {
             <ImagePerfil src={perfil} alt={"Imagem-perfil"} />
           </LinkPerfil>
           <ContainerSubMenu $active={showSubMenu ? "true" : undefined}>
-            <LinkMenu>EDITAR PERFIL</LinkMenu>
-            <LinkMenu>CONFIGURAÇÕES</LinkMenu>
+            <LinkMenu $desenvolvimento>EDITAR PERFIL</LinkMenu>
+            <LinkMenu $desenvolvimento>CONFIGURAÇÕES</LinkMenu>
             <LinkMenu $lastLinkPerfil onClick={handleLogout}>
               SAIR
             </LinkMenu>
@@ -87,7 +97,10 @@ const Header = ({ openModal,openModalDesempenho }) => {
         </ContainerImgPerfil>
       </ContainerPerfil>
       <Modal isOpen={showModal} closeModal={toggleModal} />
-      <Desempenho isOpen={showModalDesempenho} closeModalDesempenho={toggleModalDesempenho} />
+      <Desempenho
+        isOpen={showModalDesempenho}
+        closeModalDesempenho={toggleModalDesempenho}
+      />
     </ContainerHeader>
   );
 };

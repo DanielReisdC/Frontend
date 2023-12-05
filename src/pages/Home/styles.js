@@ -17,12 +17,16 @@ export const Main = styled.main`
     transition: 0.6s ease;
     transition-property: left;
   justify-content: center;
+  @media (max-width:555px){
+    left: 0;
+  }
+
 `;
 export const ContainerLembrete = styled.div`
   background-color: #d9d9d9;
   padding: 10px;
   border-radius: 15px;
-  margin: 10px 5px;
+  margin: 35px 5px;
   min-width: 82%;
   max-width: 1150px;
   min-height: 100vh;

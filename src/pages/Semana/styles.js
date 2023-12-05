@@ -27,9 +27,9 @@ export const ContainerSubEsquerda = styled.div`
   height: 730px;
   min-width: 346px;
   margin-bottom: 40px;
+  width: 374px;
 `;
 export const ContainerSubDireita = styled.div`
-  max-width: 750px;
   margin-left: 0;
   background-color: #d9d9d9;
   padding: 20px 5px;
@@ -38,6 +38,7 @@ export const ContainerSubDireita = styled.div`
   height: 730px;
   min-width: 346px;
   margin-bottom: 40px;
+  width: 374px;
 `;
 export const ContainerSubBaixo = styled.div`
   background-color: #d9d9d9;
@@ -47,6 +48,7 @@ export const ContainerSubBaixo = styled.div`
   height: 730px;
   min-width: 346px;
   margin-bottom: 40px;
+  width: 374px;
 `;
 export const ContainerHoje = styled.div`
   height: 100%;

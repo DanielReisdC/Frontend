@@ -91,7 +91,7 @@ const App = () => {
     try {
       // Chamada para o backend para cadastrar usuário
       const response = await axios.post(
-        "http://localhost:4000/usuarios/cadastrar",
+        "https://lifetidy.onrender.com/usuarios/cadastrar",
         {
           nome_usuario,
           email,
@@ -215,7 +215,7 @@ const App = () => {
           </Main>
           <Anside>
             <ContainerLogo>
-              <Link onClick={() => navigate("/landingpage")}>
+              <Link onClick={() => navigate("/")}>
                 <ImageLogo src={logo} alt={"Logo-LifeTidy"} />
               </Link>
             </ContainerLogo>

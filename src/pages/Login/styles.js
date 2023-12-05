@@ -25,11 +25,12 @@ export const Form = styled.form`
   padding: 2em 4em 4em 4em;
   align-items: center;
 
-  @media (max-width: 555px) {
-    padding: 20px;
-  }
   @media (max-width: 715px) {
     padding: 2em 1.5em 4em 1.5em;
+  }
+  
+  @media (max-width: 555px) {
+    padding: 20px;
   }
 `;
 
@@ -48,9 +49,15 @@ export const Link = styled.a`
 
 export const ImageLogo = styled.img`
   display: flex;
-  max-width: 300px;
+  max-width: 341px;
   padding-bottom: 20px;
   border-bottom: 1px solid #3c3b3b4d;
+  @media (max-width: 388px) {
+    max-width: 308px;
+  }
+  @media (max-width: 359px) {
+    max-width: 228px;
+  }
 `;
 
 export const ContainerInputs = styled.div`
@@ -62,8 +69,6 @@ export const ContainerInputs = styled.div`
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  
- 
 `;
 
 export const EmailIcone = styled.div`
@@ -77,11 +82,9 @@ export const EmailIcone = styled.div`
   margin-right: 5px;
 `;
 
-
 export const PasswordIcone = styled(EmailIcone)`
   background-image: url(${senhaIcon});
 `;
-
 
 export const Input = styled.input`
   border: none;
@@ -94,10 +97,22 @@ export const Input = styled.input`
   padding-left: 8px;
   min-width: 308px;
   margin-bottom: ${(props) => (props.$lastinput ? "15px" : "0")};
-  &::placeholder{
-      font-weight: bold;
+  &::placeholder {
+    font-weight: bold;
+    @media (max-width: 555px) {
+      font-size: 13px;
     }
-  `
+  }
+  @media (max-width: 555px) {
+    min-width: 280px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 390px) {
+    min-width: 203px;
+    font-size: 14px;
+  }
+`;
 
 export const ContainerText = styled.div`
   display: flex;
@@ -134,30 +149,33 @@ export const ContainerLoginCom = styled.div`
 export const CustomLoader = styled.div`
   width: 32px;
   height: 32px;
-  --c: radial-gradient(farthest-side, #5F98B4 92%, #0000);
-  background: 
-    var(--c) 50% 0, 
-    var(--c) 50% 100%, 
-    var(--c) 100% 50%, 
+  --c: radial-gradient(farthest-side, #5f98b4 92%, #0000);
+  background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,
     var(--c) 0 50%;
   background-size: 6px 6px;
   background-repeat: no-repeat;
   animation: s8 0.5s linear infinite;
   position: relative;
 
-  &::before {    
+  &::before {
     content: "";
     position: absolute;
     inset: 0;
     margin: 3px;
-    background: repeating-conic-gradient(#0000 0 35deg, #5F98B4 0 90deg);
-    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 1px), #000 0);
+    background: repeating-conic-gradient(#0000 0 35deg, #5f98b4 0 90deg);
+    -webkit-mask: radial-gradient(
+      farthest-side,
+      #0000 calc(100% - 1px),
+      #000 0
+    );
     mask: radial-gradient(farthest-side, #0000 calc(100% - 1px), #000 0);
     border-radius: 50%;
   }
 
-  @keyframes s8 { 
-    100% { transform: rotate(.5turn) }
+  @keyframes s8 {
+    100% {
+      transform: rotate(0.5turn);
+    }
   }
 `;
 

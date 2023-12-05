@@ -28,17 +28,22 @@ import {
   ContainerCustomLoader,
 } from "./styles";
 
-const NovaTarefaModal = ({ isOpen, closeModal }) => {
+const EditarTarefaModal = ({ isOpen, closeModal, tarefa }) => {
+  const converterData = (data) => {
+    const partesData = data.split("/");
+    return `${partesData[2]}-${partesData[1]}-${partesData[0]}`;
+  };
+
   const [formState, setFormState] = useState({
-    nome_tarefa: "",
-    descricao: "",
-    categoria: "",
-    data_inicio: "",
-    data_fim: "",
-    hora_inicio: "",
-    hora_fim: "",
-    importancia: "",
-    status: "",
+    nome_tarefa: tarefa.nome_tarefa,
+    descricao: tarefa.descricao,
+    categoria: tarefa.categoria,
+    data_inicio: converterData(tarefa.data_inicio),
+    data_fim: converterData(tarefa.data_fim),
+    hora_inicio: tarefa.hora_inicio,
+    hora_fim: tarefa.hora_fim,
+    importancia: tarefa.importancia,
+    status: tarefa.status,
   });
   const { fetchTarefas } = useAuth();
   const handleChange = (event) => {
@@ -56,7 +61,10 @@ const NovaTarefaModal = ({ isOpen, closeModal }) => {
     setIsLoading(true);
     try {
       const token = localStorage.getItem("token");
-      await axios.post("https://lifetidy.onrender.com/tarefas/adicionar", formState, {
+      await axios.put("https://lifetidy.onrender.com/tarefas/atualizar", {
+        id_tarefa: tarefa.id_tarefa,
+        dadosAtualizados: formState
+      }, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -69,6 +77,7 @@ const NovaTarefaModal = ({ isOpen, closeModal }) => {
       setIsLoading(false);
     }
   };
+  
 
   return (
     <Modal
@@ -78,7 +87,7 @@ const NovaTarefaModal = ({ isOpen, closeModal }) => {
     >
       <ContainerAdicionarTarefa>
         <ContainerH2Tarefa>
-          <H2AdicionarTarefa>ADICIONAR TAREFA</H2AdicionarTarefa>
+          <H2AdicionarTarefa>EDITAR TAREFA</H2AdicionarTarefa>
           <ContainerButtonExit>
             <StyledIcon icon={faClose} onClick={closeModal} />
           </ContainerButtonExit>
@@ -154,7 +163,7 @@ const NovaTarefaModal = ({ isOpen, closeModal }) => {
             </ContainerInicioConclusaoHorario>
           </ContainerConclusao>
           <ContainerDescricaoTarefa>
-            <H4InfomacoesInputs>NOME</H4InfomacoesInputs>
+            <H4InfomacoesInputs>TAREFA</H4InfomacoesInputs>
             <TextArea
               type="text"
               id="tarefa"
@@ -181,7 +190,7 @@ const NovaTarefaModal = ({ isOpen, closeModal }) => {
           </ContainerCustomLoader>
           <DivButtonNovaTarefa>
             <ButtonCriarTarefa type="submit" disabled={isLoading}>
-              CRIAR TAREFA
+              ATUALIZAR TAREFA
             </ButtonCriarTarefa>
             <ButtonCancelar onClick={closeModal}>CANCELAR</ButtonCancelar>
           </DivButtonNovaTarefa>
@@ -191,4 +200,4 @@ const NovaTarefaModal = ({ isOpen, closeModal }) => {
   );
 };
 
-export default NovaTarefaModal;
+export default EditarTarefaModal;

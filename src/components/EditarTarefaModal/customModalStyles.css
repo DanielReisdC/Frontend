@@ -1,0 +1,11 @@
+.custom-modal-styles .modal-content {
+    border-radius: 18px; 
+   
+  }
+   .modal-backdrop  {
+    background-color: #011620;
+  }
+
+  .modal {
+    --bs-modal-width: 560px;
+  }

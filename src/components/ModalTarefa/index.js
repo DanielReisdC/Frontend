@@ -53,7 +53,7 @@ const Modal = ({ isOpen, closeModal }) => {
   try {
     const token = localStorage.getItem("token");
     await axios.post(
-      "http://localhost:4000/tarefas/adicionar",
+      "https://lifetidy.onrender.com/tarefas/adicionar",
       formState,
       {
         headers: {

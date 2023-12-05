@@ -13,7 +13,7 @@ padding: 0;
 `;
 
 export const DivAdicionarTarefa = styled.div`
-  /* Adicione estilos para o DivAdicionarTarefa aqui */
+  
 `;
 
 export const DivH2Tarefa = styled.div`
@@ -65,9 +65,8 @@ max-width: 520px;
 
 `;
 
-
 export const MedalIcon = styled(FontAwesomeIcon)`
-  /* Adicione estilos para o MedalIcon aqui */
+  
 `;
 export const H2Parabens = styled.h2`
 margin: 12px 0 8px 0;
@@ -89,9 +88,9 @@ margin: 1em 0;
 `;
 
 export const DivPorcentagemRedimento = styled.div`
-  /* Adicione estilos para o DivPorcentagemRedimento aqui */
+  
 `;
 
 export const DivPorcentagemRedimentoDetalhada = styled.div`
-  /* Adicione estilos para o DivPorcentagemRedimentoDetalhada aqui */
+  
 `;
