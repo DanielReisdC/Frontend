@@ -63,7 +63,7 @@ export const ImageLogo = styled.img`
 export const ContainerInputs = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  max-width: 100%;
 `;
 
 export const Container = styled.div`
