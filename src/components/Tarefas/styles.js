@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const ContainerPaiLembretes = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+ 
 `;
 export const TarefasConcluidas = styled.button`
 height: 1.8em;
@@ -49,6 +49,7 @@ export const InformacoesLembretes = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
  
 `;
 export const H2 = styled.h2`
