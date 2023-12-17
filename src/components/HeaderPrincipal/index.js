@@ -88,7 +88,7 @@ const handleSearch = (e) => {
             <ImagePerfil src={perfil} alt={"Imagem-perfil"} />
           </LinkPerfil>
           <ContainerSubMenu $active={showSubMenu ? "true" : undefined}>
-            <LinkMenu $desenvolvimento>EDITAR PERFIL</LinkMenu>
+            <LinkMenu onClick={() => navigate("/perfil")}>EDITAR PERFIL</LinkMenu>
             <LinkMenu $desenvolvimento>CONFIGURAÇÕES</LinkMenu>
             <LinkMenu $lastLinkPerfil onClick={handleLogout}>
               SAIR
