@@ -7,7 +7,6 @@ import TarefaImportanciaAlta from "../../components/TarefaImportanciaAlta";
 import TarefaImportanciaRegular from "../../components/TarefaImportanciaRegular";
 import TarefaImportanciaBaixa from "../../components/TarefaImportanciaBaixa";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { format } from "date-fns";
 
 import {
@@ -31,7 +30,7 @@ import {
 
 const Hoje = () => {
   const navigate = useNavigate();
-  const { token, setUserName, logout } = useAuth(); // Obtendo o token do contexto de autenticação
+  const { token, logout } = useAuth(); 
 
   const [isModalBootstrapOpen, setIsModalBootstrapOpen] = useState(false);
   const { sideBarIsActive } = useAuth();
@@ -49,33 +48,8 @@ const Hoje = () => {
     if (!token && !localToken) {
       logout();
       navigate("/login");
-    } else {
-      const authToken = token || localToken;
-      axios
-        .get("https://lifetidy.onrender.com/usuarios/buscarNome", {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        })
-        .then((response) => {
-          let userName = response.data.usuarioNome;
-          let userNameSplit = userName.split(" ");
-          if (userNameSplit.length > 2) {
-            userName = userNameSplit.slice(0, 2).join(" ");
-          }
-          setUserName(userName);
-          localStorage.setItem("userName", userName);
-        })
-        .catch((error) => {
-          if (error.response && error.response.status === 401) {
-            logout();
-            navigate("/login");
-          } else {
-            console.error("Erro ao buscar o nome do usuário:", error);
-          }
-        });
-    }
-  }, [navigate, setUserName, token, logout]);
+    } 
+  }, [navigate, logout]);
 
   const { selectedDate, setSelectedDate } = useAuth();
 
