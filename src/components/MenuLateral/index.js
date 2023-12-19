@@ -53,19 +53,13 @@ const Sidebar = () => {
               <MenuItem $principal $active={location.pathname === "/home"}>
                 <LinkSideBar onClick={() => navigate("/home")}>
                   <StyledIcon icon={faHome} />
-                  INICIO
+                  INÍCIO
                 </LinkSideBar>
               </MenuItem>
               <MenuItem $active={location.pathname === "/hoje"}>
                 <LinkSideBar onClick={() => navigate("/hoje")}>
                   <StyledIcon icon={faCalendar} />
-                  HOJE
-                </LinkSideBar>
-              </MenuItem>
-              <MenuItem $active={location.pathname === "/semana"}>
-                <LinkSideBar onClick={() => navigate("/semana")}>
-                  <StyledIcon icon={faCalendarMinus} />
-                  SEMANA
+                  IMPORTÂNCIA
                 </LinkSideBar>
               </MenuItem>
               <Border></Border>

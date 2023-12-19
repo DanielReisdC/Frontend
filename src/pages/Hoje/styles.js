@@ -56,13 +56,14 @@ export const InputData = styled.input`
   background-color: #fff;
   font-weight: 600;
   text-align: center;
+  border: none;
 `;
 
 export const ContainerSubEsquerda = styled.div`
   background-color: #d9d9d9;
   padding: 10px;
   border-radius: 15px;
-  margin: 35px 5px;
+  margin: 30px 5px;
   height: 730px;
   min-width: 346px;
 `;
