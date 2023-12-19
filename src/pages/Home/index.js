@@ -34,8 +34,8 @@ const Home = () => {
   useEffect(() => {
     const localToken = localStorage.getItem("token");
     if (!token && !localToken) {
-      //logout();
-      //navigate("/login");
+      logout();
+      navigate("/login");
     } else {
       const authToken = token || localToken;
       axios
