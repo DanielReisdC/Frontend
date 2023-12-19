@@ -63,6 +63,8 @@ export const AuthProvider = ({ children }) => {
 
   const [searchTerm, setSearchTerm] = useState("");
 
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
   return (
     <AuthContext.Provider
       value={{
@@ -80,6 +82,8 @@ export const AuthProvider = ({ children }) => {
         setIsActive,
         searchTerm,
         setSearchTerm,
+        selectedDate,
+        setSelectedDate,
       }}
     >
       {children}

@@ -27,7 +27,7 @@ import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 const TarefaImportanciaAlta = () => {
   const [tarefasImportanciaAlta, setTarefasImportanciaAlta] = useState([]);
-  const { token } = useAuth();
+  const { token, selectedDate } = useAuth();
   const fetchTarefasImportanciaAlta = async () => {
     try {
       const response = await axios.get(
@@ -98,7 +98,7 @@ const TarefaImportanciaAlta = () => {
       console.error("Não foi possível atualizar o status da tarefa", error);
     }
   };
-  const hoje = new Date();
+  const hoje = selectedDate
   const dia = String(hoje.getDate()).padStart(2, "0");
   const mes = String(hoje.getMonth() + 1).padStart(2, "0");
   const ano = hoje.getFullYear();

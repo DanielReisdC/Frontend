@@ -8,6 +8,7 @@ import TarefaImportanciaRegular from "../../components/TarefaImportanciaRegular"
 import TarefaImportanciaBaixa from "../../components/TarefaImportanciaBaixa";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { format } from "date-fns";
 
 import {
   AppBody,
@@ -22,6 +23,10 @@ import {
   ContainerTarefa,
   PPrioridadeRegular,
   PPrioridadeBaixa,
+  ContainerAllTarefas,
+  ContainerInputData,
+  InputData,
+  H1Data,
 } from "./styles";
 
 const Hoje = () => {
@@ -72,39 +77,66 @@ const Hoje = () => {
     }
   }, [navigate, setUserName, token, logout]);
 
+  const { selectedDate, setSelectedDate } = useAuth();
+
+  const handleDateChange = (event) => {
+    const dateValue = event.target.value;
+    const dateObject = new Date(dateValue + "T00:00:00");
+
+    setSelectedDate(dateObject);
+  };
+
+  const formatDateToInput = (date) => {
+    if (date instanceof Date && !isNaN(date)) {
+      return format(date, "yyyy-MM-dd");
+    } else {
+      return "";
+    }
+  };
+
   return (
     <AppBody>
       <Header openModal={openModalBootstrap} />
       <ContainerMainPrincipalHoje>
         <SideBar />
         <Main $isActive={sideBarIsActive}>
-          <ContainerSubEsquerda>
-            <ContainerHoje>
-              <PPrioridadeUrgente>Urgente</PPrioridadeUrgente>
-              <ContainerBorda></ContainerBorda>
-              <ContainerTarefa>
-                <TarefaImportanciaAlta />
-              </ContainerTarefa>
-            </ContainerHoje>
-          </ContainerSubEsquerda>
-          <ContainerSubDireita>
-            <ContainerHoje>
-              <PPrioridadeRegular>Regular</PPrioridadeRegular>
-              <ContainerBorda></ContainerBorda>
-              <ContainerTarefa>
-                <TarefaImportanciaRegular />
-              </ContainerTarefa>
-            </ContainerHoje>
-          </ContainerSubDireita>
-          <ContainerSubBaixo>
-            <ContainerHoje>
-              <PPrioridadeBaixa>Baixa</PPrioridadeBaixa>
-              <ContainerBorda></ContainerBorda>
-              <ContainerTarefa>
-                <TarefaImportanciaBaixa />
-              </ContainerTarefa>
-            </ContainerHoje>
-          </ContainerSubBaixo>
+          <ContainerInputData>
+            <H1Data>Selecione o dia da tarefa</H1Data>
+            <InputData
+              type="date"
+              value={formatDateToInput(selectedDate)}
+              onChange={handleDateChange}
+            />
+          </ContainerInputData>
+          <ContainerAllTarefas>
+            <ContainerSubEsquerda>
+              <ContainerHoje>
+                <PPrioridadeUrgente>Urgente</PPrioridadeUrgente>
+                <ContainerBorda></ContainerBorda>
+                <ContainerTarefa>
+                  <TarefaImportanciaAlta />
+                </ContainerTarefa>
+              </ContainerHoje>
+            </ContainerSubEsquerda>
+            <ContainerSubDireita>
+              <ContainerHoje>
+                <PPrioridadeRegular>Regular</PPrioridadeRegular>
+                <ContainerBorda></ContainerBorda>
+                <ContainerTarefa>
+                  <TarefaImportanciaRegular />
+                </ContainerTarefa>
+              </ContainerHoje>
+            </ContainerSubDireita>
+            <ContainerSubBaixo>
+              <ContainerHoje>
+                <PPrioridadeBaixa>Baixa</PPrioridadeBaixa>
+                <ContainerBorda></ContainerBorda>
+                <ContainerTarefa>
+                  <TarefaImportanciaBaixa />
+                </ContainerTarefa>
+              </ContainerHoje>
+            </ContainerSubBaixo>
+          </ContainerAllTarefas>
         </Main>
       </ContainerMainPrincipalHoje>
       {isModalBootstrapOpen && (

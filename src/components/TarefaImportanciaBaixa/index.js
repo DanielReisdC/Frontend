@@ -27,7 +27,7 @@ import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 const TarefaImportanciaBaixa = () => {
   const [tarefasImportanciaBaixa, setTarefasImportanciaBaixa] = useState([]);
-  const { token } = useAuth();
+  const { token, selectedDate } = useAuth();
   const fetchTarefasImportanciaBaixa = async () => {
     try {
       const response = await axios.get(
@@ -99,7 +99,7 @@ const TarefaImportanciaBaixa = () => {
     }
   };
 
-  const hoje = new Date();
+  const hoje = selectedDate;
   const dia = String(hoje.getDate()).padStart(2, "0");
   const mes = String(hoje.getMonth() + 1).padStart(2, "0");
   const ano = hoje.getFullYear();

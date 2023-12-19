@@ -17,9 +17,45 @@ export const Main = styled.div`
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  @media (max-width:555px){
+  @media (max-width: 555px) {
     left: 0;
   }
+`;
+
+export const ContainerAllTarefas = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  position: relative;
+  left: 0;
+  transition: 0.6s ease;
+  transition-property: left;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+`;
+export const ContainerInputData = styled.div`
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const H1Data = styled.h1`
+  font-size: 18px;
+  color: #fff;
+`;
+
+export const InputData = styled.input`
+  padding: 4px 6px;
+  font-size: 17px;
+  border-radius: 10px;
+  outline: none;
+  color: #292929;
+  background-color: #fff;
+  font-weight: 600;
+  text-align: center;
 `;
 
 export const ContainerSubEsquerda = styled.div`
@@ -92,7 +128,7 @@ export const PPrioridadeRegular = styled.div`
   height: 44px;
   width: 133px;
   font-size: 20px;
-  background-color: #1B0BD7;
+  background-color: #1b0bd7;
   color: #fff;
   justify-content: center;
   margin: 0;
