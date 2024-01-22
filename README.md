@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+<!--Cabeçalho-->
+<h1 align="center">
+  Projeto LifeTidy
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/ifpi-picos/projeto-web-full-stack-time-lifetidy">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/ifpi-picos/projeto-web-full-stack-time-lifetidy">
+  <img alt="Github last commit" src="https://img.shields.io/github/last-commit/ifpi-picos/projeto-web-full-stack-time-lifetidy">
+  <img alt="Repository issues" src="https://img.shields.io/github/issues/ifpi-picos/projeto-web-full-stack-time-lifetidy">
+</p>
 
-## Available Scripts
 
-In the project directory, you can run:
+<!--Índice-->
 
-### `npm start`
+<!--Corpo-->
+<h2>
+  Sobre o LifeTidy:
+</h2>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<p> A plataforma LifeTidy, que se compromete diretamente com a organização pessoal, ela visa simplificar a rotina do usuário e aumentar sua produtividade, rendimento e desempenho. Com recursos flexíveis, como diferentes modos de exibição, atribuição de prazos e prioridades, acompanhamento de desempenho e notificações, o LifeTidy oferece uma solução abrangente para gerenciar tarefas e listas de compras, buscando facilitar a vida diária dos usuários e promover maior organização e produtividade.</p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Responsáveis pelo projeto:
+<h4>
+  Ryan Victor Santos do Nascimento(Team leader/Desenvolvedor Full Stack)
+</h4>
 
-### `npm test`
+<h4>
+  Daniel Reis (Desenvolvedor Full Stack/ Quality Assurance)
+</h4>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h4>
+  José Nataniel (Product Owner/Desenvolvedor Full Stack)
+</h4>
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tecnologias
+<h4>
+  React.js
+</h4>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<h4>
+  JavaScript
+</h4>
 
-### `npm run eject`
+<h4>
+  Node.js
+</h4>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<h4>
+  API do Google calendar
+</h4>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<h4>
+  API Express
+</h4>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<h4>
+  Sequelize
+</h4>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/U2l29CBO)
