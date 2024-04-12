@@ -5,10 +5,11 @@ export const AppBody = styled.div`
 `;
 
 export const Header = styled.header`
-  margin: 2em;
+box-shadow: 0px 3px 6px #00000040;
+  padding: 1em 2em;
 
   @media (max-width: 550px) {
-    margin: 1em;
+    padding: 1em;
   }
 `;
 export const Nav = styled.nav`
@@ -27,7 +28,7 @@ export const ContainerNav = styled.div`
 export const ContainerLogo = styled.div`
   max-width: 20px;
   margin-left: 1em;
-  min-width: 115px;
+  min-width: 170px;
   margin-left: 0;
   @media (max-width: 330px) {
     min-width: 50px;
@@ -39,7 +40,7 @@ export const Link = styled.a`
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
-  color: #242424;
+  color: #000;
   font-size: 15px;
   transition: color 0.3s ease;
   font-weight: bold;
@@ -121,12 +122,14 @@ export const TextsApresentacao = styled.div`
 
 export const H1TextApresentacao = styled.h1`
   margin: 1em 0.2em 0 0.2em;
+  color: #000;
 `;
 
 export const PTextApresentacao = styled.p`
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 300;
   margin: 0.2em 0.5em;
+  color: #000;
 `;
 
 export const ContainerDivs = styled.div`
@@ -191,7 +194,7 @@ export const DivInformacoesComIcones = styled.div`
 export const TextsInformacoes = styled.p`
   color: #ffffff;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 14px;
   max-width: 31em;
 `;
 
